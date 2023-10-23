@@ -19,6 +19,7 @@ public class Konwerter extends JFrame {
     private JButton exitButton;
     private JPanel JPanel6;
     double celciius, farenheit;
+    final double con = 1.8;
 
     public static void main(String[] args) {
         Konwerter konwerter = new Konwerter();
@@ -28,14 +29,16 @@ public class Konwerter extends JFrame {
     public Konwerter() {
         super("Konwerter");
         this.setContentPane(JPanel1);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
         button_convert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 celciius = Double.parseDouble(textField_input.getText());
-                farenheit = ((9/5)*celciius)+32;
-                JLabel_convert_result.setText("Podana temperatura w °F: "+farenheit);
+                farenheit = con * celciius + 32;
+                JLabel_convert_result.setText("Podana temperatura w °F: " + farenheit);
             }
         });
         clearButton.addActionListener(new ActionListener() {

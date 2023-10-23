@@ -10,12 +10,10 @@ public class Kalkulator extends JFrame {
     private JTextField textField_b;
     private JButton sumaButton;
     private JButton ilorazButton;
-    private JButton różnicaButton;
+    private JButton roznicaButton;
     private JButton iloczynButton;
-    private JButton wyczyścPolaButton;
-    private JButton wyjścieButton;
-    private JLabel Label_podaj_a;
-    private JLabel Label_podaj_b;
+    private JButton wyczyscPolaButton;
+    private JButton wyjscieButton;
     private JPanel JPanel2;
     private JPanel JPanel3;
     private JPanel JPanel4;
@@ -31,26 +29,29 @@ public class Kalkulator extends JFrame {
     public Kalkulator() {
         super("Kalkulator");
         this.setContentPane(this.JPanel1);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        int width = 400, height = 400;
-        this.setSize(width, height);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        int width = 400, height = 400;
+//        this.setSize(width, height);
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
         sumaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 valueA = Double.parseDouble(textField_a.getText());
                 valueB = Double.parseDouble(textField_b.getText());
-                score = valueA+valueB;
-                JLabelwyniki.setText("Wynik "+valueA+" + "+valueB+" = "+score);
+                score = valueA + valueB;
+                JLabelwyniki.setText("Wynik " + valueA + " + " + valueB + " = " + score);
 
             }
         });
-        różnicaButton.addActionListener(new ActionListener() {
+        roznicaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 valueA = Double.parseDouble(textField_a.getText());
                 valueB = Double.parseDouble(textField_b.getText());
-                score = valueA-valueB;
-                JLabelwyniki.setText("Wynik "+valueA+" - "+valueB+" = "+score);
+                score = valueA - valueB;
+                JLabelwyniki.setText("Wynik " + valueA + " - " + valueB + " = " + score);
             }
         });
         iloczynButton.addActionListener(new ActionListener() {
@@ -58,8 +59,8 @@ public class Kalkulator extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 valueA = Double.parseDouble(textField_a.getText());
                 valueB = Double.parseDouble(textField_b.getText());
-                score = valueA*valueB;
-                JLabelwyniki.setText("Wynik "+valueA+" * "+valueB+" = "+score);
+                score = valueA * valueB;
+                JLabelwyniki.setText("Wynik " + valueA + " * " + valueB + " = " + score);
             }
         });
         ilorazButton.addActionListener(new ActionListener() {
@@ -70,17 +71,16 @@ public class Kalkulator extends JFrame {
                 if (valueB != 0) {
                     score = valueA / valueB;
                     JLabelwyniki.setText("Wynik " + valueA + " / " + valueB + " = " + score);
-                }
-                else JLabelwyniki.setText("Nie można dzielić przez zero");
+                } else JLabelwyniki.setText("Nie można dzielić przez zero");
             }
         });
-        wyjścieButton.addActionListener(new ActionListener() {
+        wyjscieButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
         });
-        wyczyścPolaButton.addActionListener(new ActionListener() {
+        wyczyscPolaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JLabelwyniki.setText("Wynik działania ...");

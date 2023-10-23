@@ -33,8 +33,10 @@ public class GeneratorLiczb extends JFrame {
     public GeneratorLiczb() {
         super("Generator");
         this.setContentPane(JPanel1);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
